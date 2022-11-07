@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#1B1A28"
+    x:Class="MAPP_MOVIE_APP.Cart">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto, Auto, *" Padding="30" RowSpacing="30">
+            <StackLayout Orientation="Vertical">
+                <Label Text="Payment Details" TextColor="White" FontSize="Large"/>
+                <ListView x:Name="CartList" ItemSelected="CartList_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ImageCell ImageSource="{Binding Image}" TextColor="#00B7FC" DetailColor="white">
+                                <ImageCell.Text>
+                                    <MultiBinding StringFormat="{}{0}:  {1}">
+                                        <Binding Path="OrderType"/>
+                                        <Binding Path="MovieTitle"/>
+                                    </MultiBinding>
+                                </ImageCell.Text>
+                                <ImageCell.Detail>
+                                    <MultiBinding StringFormat="{}Days:  {0}   Cost:  £{1}">
+                                        <Binding Path="NumOfDays"/>
+                                        <Binding Path="TotalCost"/>
+                                    </MultiBinding>
+                                </ImageCell.Detail>
+                            </ImageCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label Text="Discount Code" TextColor="White" FontSize="20"/>
+                <StackLayout Orientation="Horizontal">
+                    <Entry x:Name="DiscountCodeIn" Placeholder="XXXXXX" PlaceholderColor="#00B7FC" TextColor="#00B7FC" BackgroundColor="#1B1A28"/>
+                    <Button x:Name="CheckCode" Clicked="CheckCode_Clicked" Text="Check Code" BackgroundColor="#1B1A28" TextColor="#00B7FC" BorderColor="#00B7FC" BorderWidth="1"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="Subtotal" TextColor="White" FontSize="20"/>
+                    <Label Text="{Binding Subtotal}" TextColor="White" FontSize="20"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="Discount" TextColor="White" FontSize="20"/>
+                    <Label Text="{Binding Discount}" TextColor="White" FontSize="20"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="VAT (20%)" TextColor="White" FontSize="20"/>
+                    <Label Text="{Binding VAT}" TextColor="White" FontSize="20"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="Total" TextColor="#00B7FC" FontSize="20" FontAttributes="Bold"/>
+                    <Label Text="{Binding FinalTotal}" TextColor="#00B7FC" FontSize="20" FontAttributes="Bold"/>
+                </StackLayout>
+                <Button x:Name="CheckoutBtn" BackgroundColor="#1B1A28" TextColor="#00B7FC" BorderColor="#00B7FC" BorderWidth="1" Text="Pay" HorizontalOptions="CenterAndExpand" WidthRequest="400" FontSize="Large" VerticalOptions="Fill" Clicked="CheckoutBtn_Clicked"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

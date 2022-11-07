@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#1B1A28"
+    x:Class="MAPP_MOVIE_APP.Checkout">
+    <ContentPage.Content>
+        <ScrollView>
+        <Grid RowDefinitions="Auto, Auto, *" Padding="30" RowSpacing="30">
+            <StackLayout Orientation="Vertical" Margin="0, 20" VerticalOptions="Start" Spacing="20">
+                <Label Text="Payment Details" TextColor="White" FontSize="Large"/>
+                <Label Text="Complete your purchase by providing your payment information" TextColor="White" FontSize="12"/>
+                <Label Text="Card Holder" TextColor="White" FontSize="20"/>
+                <Entry x:Name="NameIn" Placeholder="Name" PlaceholderColor="#00B7FC" BackgroundColor="#1B1A28" />
+                <Label Text="Email Address" TextColor="White" FontSize="20"/>
+                <Entry x:Name="EmailIn" Placeholder="@" PlaceholderColor="#00B7FC" BackgroundColor="#1B1A28" />
+                <Label Text="Card Details" TextColor="White" FontSize="20"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Entry x:Name="CardNumIn" Placeholder="Card Number" PlaceholderColor="#00B7FC" BackgroundColor="#1B1A28" WidthRequest="190"/>
+                    <Entry x:Name="ExpIn" Placeholder="MM/YY" PlaceholderColor="#00B7FC" BackgroundColor="#1B1A28" WidthRequest="80"/>
+                    <Entry x:Name="CVCIn" Placeholder="CVC" PlaceholderColor="#00B7FC" BackgroundColor="#1B1A28" WidthRequest="50"/>
+                </StackLayout>
+                <Label Text="Billing Address" TextColor="White" FontSize="20"/>
+                <Entry x:Name="HouseNumIn" Placeholder="House Number" PlaceholderColor="#00B7FC" BackgroundColor="#1B1A28" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                    <Entry x:Name="TownIn" Placeholder="Town" PlaceholderColor="#00B7FC"  BackgroundColor="#1B1A28" WidthRequest="165"/>
+                    <Entry x:Name="PostcodeIn" Placeholder="Postcode" PlaceholderColor="#00B7FC"  BackgroundColor="#1B1A28" WidthRequest="165"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="Total" TextColor="#00B7FC" FontSize="20" FontAttributes="Bold"/>
+                    <Label Text="{Binding FinalTotal}" TextColor="#00B7FC" FontSize="20" FontAttributes="Bold"/>
+                </StackLayout>
+                <Button x:Name="PayBtn" BackgroundColor="#1B1A28" TextColor="#00B7FC" BorderColor="#00B7FC" BorderWidth="1" Text="Pay" HorizontalOptions="CenterAndExpand" WidthRequest="400" FontSize="Large" VerticalOptions="Fill" Clicked="PayBtn_Clicked"/>
+            </StackLayout>
+        </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+

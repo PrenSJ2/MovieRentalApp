@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#1B1A28"
+    x:Class="MAPP_MOVIE_APP.MovieDetails">
+    <ContentPage.Content>
+        <ScrollView>
+        <Grid RowDefinitions="Auto, Auto, *" Padding="30" RowSpacing="30">
+            <StackLayout Orientation="Vertical" Margin="0, 20" VerticalOptions="Start" Spacing="20">
+                <Label Text="Movie Details" TextColor="White" FontSize="Large"/>                
+                <Label Text="Movie Poster" TextColor="White" FontSize="20"/>
+                <StackLayout Orientation="Horizontal">
+                    <Image x:Name="MoviePoster" Source="{Binding Image}" Aspect="AspectFill" HeightRequest="155" HorizontalOptions="FillAndExpand" />
+                    <Entry x:Name="ImageNameIn" Placeholder="Image.png" Text="{Binding Image}" PlaceholderColor="#00B7FC" TextColor="#00B7FC" BackgroundColor="#1B1A28"/>
+                </StackLayout>
+                <Label Text="Movie Title" TextColor="White" FontSize="20"/>
+                <Entry x:Name="MovieNameIn" Placeholder="Movie Name" Text="{Binding MovieTitle}" PlaceholderColor="#00B7FC" TextColor="#00B7FC" BackgroundColor="#1B1A28"/>
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout>
+                        <Label Text="Release Date" TextColor="White" FontSize="20"/>
+                        <Entry x:Name="ReleaseDateIn" Placeholder="DD/MM/YYYY" Text="{Binding ReleaseDate}" PlaceholderColor="#00B7FC" TextColor="#00B7FC" BackgroundColor="#1B1A28"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Show Time" TextColor="White" FontSize="20"/>
+                        <Entry x:Name="TimeIn" Placeholder="0h0m" Text="{Binding ShowTime}" PlaceholderColor="#00B7FC" TextColor="#00B7FC" BackgroundColor="#1B1A28"/>
+                    </StackLayout>
+                </StackLayout>
+                <Label Text="Categories" TextColor="White" FontSize="20"/>
+                <Entry x:Name="CategoriesIn" Placeholder="Action, Comedy, etc" Text="{Binding Tags}" PlaceholderColor="#00B7FC" TextColor="#00B7FC" BackgroundColor="#1B1A28"/>
+                <Label Text="Cast" TextColor="White" FontSize="20"/>
+                <Entry x:Name="CastIn" Placeholder="John Smith, Jeff Jones" Text="{Binding Cast}" PlaceholderColor="#00B7FC" TextColor="#00B7FC" BackgroundColor="#1B1A28"/>
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout>
+                        <Label Text="DVD Price per day" TextColor="White" FontSize="20"/>
+                        <Entry x:Name="DVDPriceIn" Placeholder="DD/MM/YYYY" Text="{Binding DVDPrice}" PlaceholderColor="#00B7FC" TextColor="#00B7FC" BackgroundColor="#1B1A28"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Streaming price per day" TextColor="White" FontSize="20"/>
+                        <Entry x:Name="StreamingPriceIn" Placeholder="0h0m" Text="{Binding StreamingPrice}" PlaceholderColor="#00B7FC" TextColor="#00B7FC" BackgroundColor="#1B1A28"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="UpdateBtn" BackgroundColor="#1B1A28" TextColor="Green" BorderColor="Green" BorderWidth="1" Text="Update" HorizontalOptions="CenterAndExpand" WidthRequest="140" FontSize="Large" VerticalOptions="Fill" Clicked="UpdateBtn_Clicked"/>
+                    <Button x:Name="DeleteBtn" BackgroundColor="#1B1A28" TextColor="Red" BorderColor="Red" BorderWidth="1" Text="Delete" HorizontalOptions="CenterAndExpand" WidthRequest="140" FontSize="Large" VerticalOptions="Fill" Clicked="DeleteBtn_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+

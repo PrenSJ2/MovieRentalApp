@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#1B1A28"
+    x:Class="MAPP_MOVIE_APP.Details">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto, Auto, *" Padding="30" RowSpacing="30">
+        <StackLayout Orientation="Horizontal" Margin="0, 20" VerticalOptions="Start" Spacing="20">
+            <Image x:Name="MovieP" Source="{Binding SelectedTicket.Image}" Aspect="AspectFill" WidthRequest="70" HeightRequest="90" HorizontalOptions="Start"/>
+            <StackLayout>
+                <Label x:Name="MovieL" Text="{Binding SelectedTicket.MovieTitle}" TextColor="White" FontSize="20"/>
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="calendar.png" HeightRequest="15" WidthRequest="15"/>
+                        <Label x:Name="DateL" Text="{Binding SelectedTicket.ReleaseDate}" TextColor="white" FontSize="12" VerticalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="time.png" HeightRequest="15" WidthRequest="15"/>
+                        <Label x:Name="TimeList" Text="{Binding SelectedTicket.ShowTime}" TextColor="white" FontSize="12" VerticalOptions="Center"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Image Source="tag.png" HeightRequest="15" WidthRequest="15"/>
+                    <Label x:Name="TagList" Text="{Binding SelectedTicket.Tags}" TextColor="white" FontSize="12" VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Image Source="users.png" HeightRequest="15" WidthRequest="15"/>
+                    <Label x:Name="CastList" Text="{Binding SelectedTicket.Cast}" TextColor="white" FontSize="12" VerticalOptions="Center"/>
+                </StackLayout>
+
+            </StackLayout>
+        </StackLayout>
+        <BoxView BackgroundColor="White" Opacity="0.2" HeightRequest="1" VerticalOptions="End"/>
+        <StackLayout HorizontalOptions="FillAndExpand" Grid.Row="1" Spacing="30">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button x:Name="StreamingBtn" BackgroundColor="#1B1A28" TextColor="#00B7FC" BorderColor="#00B7FC" BorderWidth="1" Text="Streaming" HorizontalOptions="Center" FontSize="Large" VerticalOptions="Fill" Clicked="StreamingBtn_Clicked"/>
+                <Button x:Name="DVDBtn" BackgroundColor="#1B1A28" TextColor="White" BorderColor="white" BorderWidth="1" Text="DVD" HorizontalOptions="Center" FontSize="Large" VerticalOptions="Fill" Clicked="DVDBtn_Clicked"/>
+            </StackLayout>
+<!--Show streaming price if streaming button elected if not show dvd price-->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label Text="Cost per day:" TextColor="white" FontSize="Large" VerticalOptions="Center"/>
+                <Label Text="£" TextColor="white" FontSize="Large" FontAttributes="Bold" VerticalOptions="Center"/>
+                <Label x:Name="StreamingCost" IsVisible="True" Text="{Binding SelectedTicket.StreamingPrice}" TextColor="white" FontSize="Large" FontAttributes="Bold" VerticalOptions="Center"/>
+                <Label x:Name="DVDCost" IsVisible="false" Text="{Binding SelectedTicket.DVDPrice}"  TextColor="white" FontSize="Large" FontAttributes="Bold" VerticalOptions="Center"/>
+            </StackLayout>
+            <Label x:Name="NumDays" BindingContext="{x:Reference stepper}" Text="{Binding Value}" TextColor="#00B7FC" FontSize="55" FontAttributes="Bold" HorizontalOptions="Center" />
+            <Label Text="days" TextColor="#00B7FC" FontSize="Large" HorizontalOptions="Center" />
+            <Stepper Minimum="0" Maximum="30" x:Name="stepper" Increment="1" HorizontalOptions="Center"/>
+            <Button x:Name="CheckoutBtn" BackgroundColor="#1B1A28" TextColor="#00B7FC" BorderColor="#00B7FC" BorderWidth="1" Text="Add to cart" HorizontalOptions="CenterAndExpand" WidthRequest="400" FontSize="Large" VerticalOptions="Fill" Clicked="CheckoutBtn_Clicked"/>
+        </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

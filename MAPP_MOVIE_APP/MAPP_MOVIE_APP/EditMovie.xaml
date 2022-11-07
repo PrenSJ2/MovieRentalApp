@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#1B1A28"
+    x:Class="MAPP_MOVIE_APP.EditMovie">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto, *" Padding="20" RowSpacing="40">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="50">
+            <Label Text="EDIT MOVIES" TextColor="#00B7FC" FontSize="40" FontAttributes="Bold" HorizontalOptions="Center" />
+            <ImageButton x:Name="AddMovieBtn" Source="plus.png" Clicked="AddMovieBtn_Clicked" HeightRequest="25" BackgroundColor="#1B1A28"/>
+        </StackLayout>
+        <StackLayout Grid.Row="1" Spacing="15">
+            <CollectionView x:Name="EditMovieView" SelectionMode="Single" SelectedItem="{Binding SelectedTicket}" SelectionChanged="MainMovieView_SelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="20" HorizontalItemSpacing="20"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.EmptyView>
+                    <Label Text="No ticket found" TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Center"/>
+                 </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Spacing="10">
+                            <Image Source="{Binding Image}" Aspect="AspectFill" HeightRequest="235" HorizontalOptions="FillAndExpand" />
+                            <Label Text="{Binding MovieTitle}" TextColor="White" FontSize="14"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </Grid>
+    </ContentPage.Content>
+</ContentPage>
+
